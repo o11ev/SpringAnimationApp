@@ -11,31 +11,44 @@ class ViewController: UIViewController {
     
     let animationData = AnimationData()
     
-    @IBOutlet var springAnimationView: SpringView!
+    @IBOutlet var blueSpringView: SpringView!
+    @IBOutlet var yellowSpringView: SpringView!
     @IBOutlet var runButton: UIButton!
-    @IBOutlet var animationInfoLabel: UILabel!
+    @IBOutlet var infoLabel: UILabel!
+    
+    override func viewDidLayoutSubviews() {
+        yellowSpringView.layer.cornerRadius = yellowSpringView.frame.size.width / 2
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        springAnimationView.layer.cornerRadius = 10
+        blueSpringView.layer.cornerRadius = 10
+        yellowSpringView.layer.cornerRadius = 5
         runButton.layer.cornerRadius = 3
         animationData.setRandom()
     }
     
     @IBAction func runButton(_ sender: Any) {
-        springAnimationView.animation = animationData.preset
-        springAnimationView.curve = animationData.curve
-        springAnimationView.force = animationData.force
-        springAnimationView.duration = animationData.duration
-        springAnimationView.delay = animationData.delay
-        
-        animationInfoLabel.text = animationData.getParametersAsString()
+        setSettingsforView(view: blueSpringView)
+        setSettingsforView(view: yellowSpringView)
+
+        infoLabel.text = animationData.getParametersAsString()
         
         animationData.setRandom()
-        
         runButton.setTitle("Run \(animationData.preset)", for: .normal)
+    
+        blueSpringView.animate()
+        yellowSpringView.animate()
         
-        springAnimationView.animate()
-        
+    }
+}
+
+extension ViewController {
+    func setSettingsforView(view: SpringView!) {
+        view.animation = animationData.preset
+        view.curve = animationData.curve
+        view.force = animationData.force
+        view.duration = animationData.duration
+        view.delay = animationData.delay
     }
 }

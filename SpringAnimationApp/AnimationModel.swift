@@ -31,7 +31,6 @@ class AnimationData {
         var delay: \(String(format: "%.2f", self.delay))
         """
     }
-    
 }
 
 enum AnimationPreset: String, CaseIterable {

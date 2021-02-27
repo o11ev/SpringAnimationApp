@@ -37,31 +37,42 @@
                                     <constraint firstAttribute="width" secondItem="4CS-qL-tfe" secondAttribute="height" multiplier="1:1" id="bvp-6W-FZ2"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Animation settings" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zEn-Ds-fsf">
-                                <rect key="frame" x="16" y="644" width="127.5" height="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zEn-Ds-fsf">
+                                <rect key="frame" x="16" y="722" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PfJ-kC-Tei" customClass="SpringView" customModule="Spring">
+                                <rect key="frame" x="157" y="383" width="100" height="100"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="PfJ-kC-Tei" secondAttribute="height" multiplier="1:1" id="bzu-c6-mo8"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.92156862745098034" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="4CS-qL-tfe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="2yD-dD-0i0"/>
+                            <constraint firstItem="PfJ-kC-Tei" firstAttribute="centerX" secondItem="4CS-qL-tfe" secondAttribute="centerX" id="2zA-6i-Yle"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="1Vt-eP-BMI" secondAttribute="bottom" constant="50" id="BET-qH-kOC"/>
                             <constraint firstItem="4CS-qL-tfe" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Bfz-N3-xo2"/>
                             <constraint firstItem="zEn-Ds-fsf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="EkY-hn-Tud"/>
-                            <constraint firstItem="1Vt-eP-BMI" firstAttribute="top" secondItem="zEn-Ds-fsf" secondAttribute="bottom" constant="100" id="L1W-eS-BCe"/>
+                            <constraint firstItem="PfJ-kC-Tei" firstAttribute="top" secondItem="4CS-qL-tfe" secondAttribute="bottom" constant="25" id="EyN-Yh-7kb"/>
+                            <constraint firstItem="1Vt-eP-BMI" firstAttribute="top" secondItem="zEn-Ds-fsf" secondAttribute="bottom" constant="40" id="L1W-eS-BCe"/>
                             <constraint firstItem="4CS-qL-tfe" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="TnB-wk-XXO"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="zEn-Ds-fsf" secondAttribute="trailing" symbolic="YES" id="Woc-1k-Pwa"/>
+                            <constraint firstItem="1Vt-eP-BMI" firstAttribute="top" secondItem="PfJ-kC-Tei" secondAttribute="bottom" constant="279" id="laO-rN-LLj"/>
                             <constraint firstItem="1Vt-eP-BMI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="nyZ-Ho-rCJ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1Vt-eP-BMI" secondAttribute="trailing" constant="16" id="rwC-x6-sBf"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="animationInfoLabel" destination="zEn-Ds-fsf" id="avw-1m-AcR"/>
+                        <outlet property="blueSpringView" destination="4CS-qL-tfe" id="ICF-LK-jcU"/>
+                        <outlet property="infoLabel" destination="zEn-Ds-fsf" id="avw-1m-AcR"/>
                         <outlet property="runButton" destination="1Vt-eP-BMI" id="Vu2-or-B4R"/>
-                        <outlet property="springAnimationView" destination="4CS-qL-tfe" id="ICF-LK-jcU"/>
+                        <outlet property="yellowSpringView" destination="PfJ-kC-Tei" id="5ul-yF-tcr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -75,6 +86,9 @@
         </systemColor>
         <systemColor name="systemTealColor">
             <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
