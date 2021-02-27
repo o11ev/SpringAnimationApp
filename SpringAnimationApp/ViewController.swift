@@ -9,7 +9,8 @@ import Spring
 
 class ViewController: UIViewController {
     
-    let animationData = AnimationData()
+    let blueViewAnimation = AnimationData()
+    let yellowViewAnimation = AnimationData()
     
     @IBOutlet var blueSpringView: SpringView!
     @IBOutlet var yellowSpringView: SpringView!
@@ -23,32 +24,42 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         blueSpringView.layer.cornerRadius = 10
-        yellowSpringView.layer.cornerRadius = 5
         runButton.layer.cornerRadius = 3
-        animationData.setRandom()
+        
+        blueViewAnimation.setRandom()
+        yellowViewAnimation.setRandom()
     }
     
     @IBAction func runButton(_ sender: Any) {
-        setSettingsforView(view: blueSpringView)
-        setSettingsforView(view: yellowSpringView)
+        setSettingsforBlueView(view: blueSpringView)
+        setSettingsforYellowView(view: yellowSpringView)
 
-        infoLabel.text = animationData.getParametersAsString()
+        infoLabel.text = blueViewAnimation.getParametersAsString()
         
-        animationData.setRandom()
-        runButton.setTitle("Run \(animationData.preset)", for: .normal)
+        blueViewAnimation.setRandom()
+        yellowViewAnimation.setRandom()
+        
+        runButton.setTitle("Run \(blueViewAnimation.preset)", for: .normal)
     
         blueSpringView.animate()
         yellowSpringView.animate()
-        
     }
 }
 
 extension ViewController {
-    func setSettingsforView(view: SpringView!) {
-        view.animation = animationData.preset
-        view.curve = animationData.curve
-        view.force = animationData.force
-        view.duration = animationData.duration
-        view.delay = animationData.delay
+    func setSettingsforBlueView(view: SpringView!) {
+        view.animation = blueViewAnimation.preset
+        view.curve = blueViewAnimation.curve
+        view.force = blueViewAnimation.force
+        view.duration = blueViewAnimation.duration
+        view.delay = blueViewAnimation.delay
+    }
+    
+    func setSettingsforYellowView(view: SpringView!) {
+        view.animation = yellowViewAnimation.preset
+        view.curve = yellowViewAnimation.curve
+        view.force = yellowViewAnimation.force
+        view.duration = yellowViewAnimation.duration
+        view.delay = yellowViewAnimation.delay
     }
 }

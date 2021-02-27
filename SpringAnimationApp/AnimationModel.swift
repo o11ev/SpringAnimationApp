@@ -24,11 +24,12 @@ class AnimationData {
     
     func getParametersAsString() -> String {
         """
-        preset: \(self.preset)
-        curve: \(self.curve)
-        force: \(String(format: "%.2f", self.force))
-        duration: \(String(format: "%.2f", self.duration))
-        var delay: \(String(format: "%.2f", self.delay))
+        Blue view settings:
+        preset — \(self.preset)
+        curve — \(self.curve)
+        force — \(String(format: "%.2f", self.force))
+        duration — \(String(format: "%.2f", self.duration))
+        var delay — \(String(format: "%.2f", self.delay))
         """
     }
 }
