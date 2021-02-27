@@ -15,18 +15,18 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        springAnimationView.layer.cornerRadius = 5
-        runButton.layer.cornerRadius = 2
+        springAnimationView.layer.cornerRadius = 10
+        runButton.layer.cornerRadius = 3
     }
 
     @IBAction func runButton(_ sender: Any) {
-        springAnimationView.animation = "zoomIn"
+        springAnimationView.animation = "fadeInDown"
         springAnimationView.curve = "easeIn"
-        springAnimationView.force = 2
-        springAnimationView.duration = 3
+        springAnimationView.force = 1
+        springAnimationView.duration = 2
         springAnimationView.delay = 0.5
         springAnimationView.animate()
+        
+        animationInfoLabel.text = springAnimationView.animation
     }
-    
 }
-
