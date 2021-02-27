@@ -7,30 +7,34 @@
 
 import UIKit
 
-class AnimationInfoUpd {
+class AnimationData {
     var preset: String = ""
     var curve: String = ""
     var force: CGFloat = 0.0
     var duration: CGFloat = 0.0
     var delay: CGFloat = 0.0
     
-    private func setRandomParameters() {
-        self.preset = AnimationPreset.fadeOutIn.rawValue
-        self.curve = AnimationCurve.easeInOut.rawValue
+    func setRandom() {
+        self.preset = AnimationPreset.allCases.randomElement()!.rawValue
+        self.curve = AnimationCurve.allCases.randomElement()!.rawValue
         self.force = CGFloat.random(in: 1..<3)
-        self.duration = CGFloat.random(in: 1..<3)
+        self.duration = CGFloat.random(in: 1..<2)
         self.delay = CGFloat.random(in: 0..<2)
     }
     
-    private func printParameters() -> String {
-        var parameters = ""
-        //parameters = "\(self.preset) + \(self.curve) + \(String(self.force))"
-        return parameters
+    func getParametersAsString() -> String {
+        """
+        preset: \(self.preset)
+        curve: \(self.curve)
+        force: \(String(format: "%.2f", self.force))
+        duration: \(String(format: "%.2f", self.duration))
+        var delay: \(String(format: "%.2f", self.delay))
+        """
     }
     
 }
 
-enum AnimationPreset: String {
+enum AnimationPreset: String, CaseIterable {
     case slideLeft
     case slideRight
     case slideDown
@@ -60,7 +64,7 @@ enum AnimationPreset: String {
     case swing
 }
 
-enum AnimationCurve: String {
+enum AnimationCurve: String, CaseIterable {
     case easeIn
     case easeOut
     case easeInOut

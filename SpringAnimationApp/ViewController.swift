@@ -9,6 +9,8 @@ import Spring
 
 class ViewController: UIViewController {
     
+    let animationData = AnimationData()
+    
     @IBOutlet var springAnimationView: SpringView!
     @IBOutlet var runButton: UIButton!
     @IBOutlet var animationInfoLabel: UILabel!
@@ -17,16 +19,23 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         springAnimationView.layer.cornerRadius = 10
         runButton.layer.cornerRadius = 3
+        animationData.setRandom()
     }
-
+    
     @IBAction func runButton(_ sender: Any) {
-        springAnimationView.animation = "fadeInDown"
-        springAnimationView.curve = "easeIn"
-        springAnimationView.force = 1
-        springAnimationView.duration = 2
-        springAnimationView.delay = 0.5
+        springAnimationView.animation = animationData.preset
+        springAnimationView.curve = animationData.curve
+        springAnimationView.force = animationData.force
+        springAnimationView.duration = animationData.duration
+        springAnimationView.delay = animationData.delay
+        
+        animationInfoLabel.text = animationData.getParametersAsString()
+        
+        animationData.setRandom()
+        
+        runButton.setTitle("Run \(animationData.preset)", for: .normal)
+        
         springAnimationView.animate()
         
-        animationInfoLabel.text = springAnimationView.animation
     }
 }
