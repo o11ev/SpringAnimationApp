@@ -17,9 +17,9 @@ class AnimationData {
     func setRandom() {
         self.preset = AnimationPreset.allCases.randomElement()!.rawValue
         self.curve = AnimationCurve.allCases.randomElement()!.rawValue
-        self.force = CGFloat.random(in: 1..<3)
-        self.duration = CGFloat.random(in: 1..<2)
-        self.delay = CGFloat.random(in: 0..<2)
+        self.force = CGFloat.random(in: 1...3)
+        self.duration = CGFloat.random(in: 0.5...2)
+        self.delay = CGFloat.random(in: 0...0.5)
     }
     
     func getParametersAsString() -> String {
