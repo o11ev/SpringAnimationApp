@@ -5,21 +5,21 @@
 //  Created by o11ev on 27.02.2021.
 //
 
-import UIKit
+import Foundation
 
 class AnimationData {
     var preset: String = ""
     var curve: String = ""
-    var force: CGFloat = 0.0
-    var duration: CGFloat = 0.0
-    var delay: CGFloat = 0.0
+    var force: Float = 0.0
+    var duration: Float = 0.0
+    var delay: Float = 0.0
     
     func setRandom() {
         self.preset = AnimationPreset.allCases.randomElement()!.rawValue
         self.curve = AnimationCurve.allCases.randomElement()!.rawValue
-        self.force = CGFloat.random(in: 1...3)
-        self.duration = CGFloat.random(in: 0.5...2)
-        self.delay = CGFloat.random(in: 0...0.5)
+        self.force = Float.random(in: 1...3)
+        self.duration = Float.random(in: 0.5...2)
+        self.delay = Float.random(in: 0...0.5)
     }
     
     func getParametersAsString() -> String {

@@ -50,16 +50,16 @@ extension ViewController {
     func setSettingsforBlueView(view: SpringView!) {
         view.animation = blueViewAnimation.preset
         view.curve = blueViewAnimation.curve
-        view.force = blueViewAnimation.force
-        view.duration = blueViewAnimation.duration
-        view.delay = blueViewAnimation.delay
+        view.force = CGFloat(blueViewAnimation.force)
+        view.duration = CGFloat(blueViewAnimation.duration)
+        view.delay = CGFloat(blueViewAnimation.delay)
     }
     
     func setSettingsforYellowView(view: SpringView!) {
         view.animation = yellowViewAnimation.preset
         view.curve = yellowViewAnimation.curve
-        view.force = yellowViewAnimation.force
-        view.duration = yellowViewAnimation.duration
-        view.delay = yellowViewAnimation.delay
+        view.force = CGFloat(yellowViewAnimation.force)
+        view.duration = CGFloat(yellowViewAnimation.duration)
+        view.delay = CGFloat(yellowViewAnimation.delay)
     }
 }
