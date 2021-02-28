@@ -15,21 +15,21 @@ class AnimationData {
     var delay: Float = 0.0
     
     func setRandom() {
-        self.preset = AnimationPreset.allCases.randomElement()!.rawValue
-        self.curve = AnimationCurve.allCases.randomElement()!.rawValue
-        self.force = Float.random(in: 1...3)
-        self.duration = Float.random(in: 0.5...2)
-        self.delay = Float.random(in: 0...0.5)
+        preset = AnimationPreset.allCases.randomElement()!.rawValue
+        curve = AnimationCurve.allCases.randomElement()!.rawValue
+        force = Float.random(in: 1...3)
+        duration = Float.random(in: 0.5...2)
+        delay = Float.random(in: 0...0.5)
     }
     
     func getParametersAsString() -> String {
         """
         Blue view settings:
-        preset — \(self.preset)
-        curve — \(self.curve)
-        force — \(String(format: "%.2f", self.force))
-        duration — \(String(format: "%.2f", self.duration))
-        var delay — \(String(format: "%.2f", self.delay))
+        preset — \(preset)
+        curve — \(curve)
+        force — \(String(format: "%.2f", force))
+        duration — \(String(format: "%.2f", duration))
+        var delay — \(String(format: "%.2f", delay))
         """
     }
 }
