@@ -15,8 +15,8 @@ class AnimationData {
     var delay: Float = 0.0
     
     func setRandom() {
-        preset = AnimationPreset.allCases.randomElement()!.rawValue
-        curve = AnimationCurve.allCases.randomElement()!.rawValue
+        preset = AnimationPreset.allCases.randomElement()?.rawValue ?? "slideLeft"
+        curve = AnimationCurve.allCases.randomElement()?.rawValue ?? "easeIn"
         force = Float.random(in: 1...3)
         duration = Float.random(in: 0.5...2)
         delay = Float.random(in: 0...0.5)
